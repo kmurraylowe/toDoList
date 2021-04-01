@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>TO DO LIST</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <h4></h4>
+   
+    <ul id="List" class="toDo">
+   
+        
+        <% for(let i=0;i<list.length; i++) { %>
+            <li class="listItem">
+                <span class="task"><%= list[i].task %></span>
+                <span class="spacer"> </span>
+                <span class="description"><%= list[i].description %></span>
+                <span class="upvotes"><%= list[i].likes%></span>
+                <span id="like"class='fas fa-arrow-up'></span>
+                <span id="dislike"class='fas fa-arrow-down'></span>
+
+                <span id="delete" class="fa fa-check" aria-hidden="true"></span>
+            </li>
+            <% } %>
+    </ul>
+   
+
+    <form action="/addToDo" method="POST">
+        <input class="inputTask" type="text" placeholder="task" name="task" >
+        <input class="inputDes" type="text" placeholder="description" name="description">
+        <input class="submitTask" type="submit" placeholder="">
+    </form>
+    <script src='main.js'></script>
+</body>
+</html>
